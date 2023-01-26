@@ -10,7 +10,7 @@ import SwiftUI
 
 class ViewModel: ObservableObject {
     @Published var rides: [Ride] = []
-    func loadData(num: String) {
+    func loadData(num: String, selection: String) {
         guard let url = URL(string: "https://random-data-api.com/api/vehicle/random_vehicle?size=\(num)") else {
             return
         }
@@ -23,12 +23,20 @@ class ViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     
                     self?.rides = rides
-                    self?.rides.sort(by: {$0.vin < $1.vin})
+                    self?.rides.sort(by: {$0.vin < $1.vin})                                       
                 }
             } catch {
                 print(error)
             }
         }
         task.resume()
+    }
+    
+    func sortResults(selection: String) {
+        if selection == "VIN" {
+            self.rides.sort(by: {$0.vin < $1.vin})
+        } else {
+            self.rides.sort(by: {$0.car_type < $1.car_type})
+        }
     }
 }
