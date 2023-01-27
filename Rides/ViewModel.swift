@@ -39,4 +39,20 @@ class ViewModel: ObservableObject {
             self.rides.sort(by: {$0.car_type < $1.car_type})
         }
     }
+    
+    func emissions(km: Int) -> Int {
+        var units: Float
+        var co2: Float
+        if km < 5000 {
+            units = Float(km) * 0.1
+        } else {
+            var first5: Float
+            var rest: Float
+            first5 = 5000 * 0.1
+            rest = (Float(km) - 5000) * 0.15
+            units = first5 + rest
+        }
+        co2 = (units/Float(km))*1000
+        return Int(co2)
+    }
 }

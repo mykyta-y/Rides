@@ -8,17 +8,23 @@
 import SwiftUI
 
 struct DetailsView: View {
+    @StateObject var viewModel = ViewModel()
     let ride: Ride
     var body: some View {
-        VStack{
-            Text("Vehicle Details")
-                .font(.largeTitle)
-                .underline()
-            CarDetail(title: "VIN: ", info: ride.vin)
-            CarDetail(title: "Make and Model: ", info: ride.make_and_model)
-            CarDetail(title: "Color: ", info: ride.color)
-            CarDetail(title: "Type: ", info: ride.car_type)
+        TabView {
+            VStack{
+                Text("Vehicle Details")
+                    .font(.largeTitle)
+                    .underline()
+                CarDetail(title: "VIN: ", info: ride.vin)
+                CarDetail(title: "Make & Model: ", info: ride.make_and_model)
+                CarDetail(title: "Color: ", info: ride.color)
+                CarDetail(title: "Type: ", info: ride.car_type)
+            }
+            co2View(ride: ride)
         }
+        .tabViewStyle(.page)
+        .indexViewStyle(.page(backgroundDisplayMode: .always))
     }
 }
 
@@ -35,6 +41,25 @@ struct CarDetail: View {
             Text(info)
                 .font(.title)
                 .frame(width: .infinity, height: 50, alignment: .trailing)
+        }
+    }
+}
+
+struct co2View: View {
+    @StateObject var viewModel = ViewModel()
+    let ride: Ride
+    var body: some View {
+        let co2 = viewModel.emissions(km: ride.kilometrage)
+        VStack {
+            Text("CO2 emissions")
+                .font(.largeTitle)
+                .underline()
+                .frame(width: .infinity, height: 100, alignment: .center)
+            Text("\(String(co2)) g/km 🚗💨")
+                .font(.title)
+                .frame(width: .infinity, height: 100, alignment: .center)
+            Text("* estimate")
+                .font(.caption)
         }
     }
 }
