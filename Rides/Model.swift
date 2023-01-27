@@ -13,6 +13,13 @@ struct Ride: Hashable, Codable {
     var make_and_model: String
     var color: String
     var car_type: String
+    
+    init(vin: String, make_and_model: String, color: String, car_type: String) {
+        self.vin = vin
+        self.make_and_model = make_and_model
+        self.color = color
+        self.car_type = car_type
+    }
 }
 
 var sortOption: [String] = ["VIN", "Car Type"]
