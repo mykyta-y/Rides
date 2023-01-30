@@ -11,25 +11,30 @@ import SwiftUI
 class ViewModel: ObservableObject {
     @Published var rides: [Ride] = []
     func loadData(num: String, selection: String) {
-        guard let url = URL(string: "https://random-data-api.com/api/vehicle/random_vehicle?size=\(num)") else {
-            return
-        }
-        let task = URLSession.shared.dataTask(with: url) {[weak self] data, _, error in
-            guard let data = data, error == nil else {
+        if (!num.isEmpty || Int(num) ?? 0 > 0 || Int(num) ?? 0 <= 100){
+            guard let url = URL(string: "https://random-data-api.com/api/vehicle/random_vehicle?size=\(num)") else {
                 return
             }
-            do {
-                let rides = try JSONDecoder().decode([Ride].self, from: data)
-                DispatchQueue.main.async {
-                    
-                    self?.rides = rides
-                    self?.rides.sort(by: {$0.vin < $1.vin})                                       
+            let task = URLSession.shared.dataTask(with: url) {[weak self] data, _, error in
+                guard let data = data, error == nil else {
+                    return
                 }
-            } catch {
-                print(error)
+                do {
+                    let rides = try JSONDecoder().decode([Ride].self, from: data)
+                    DispatchQueue.main.async {
+                        
+                        self?.rides = rides
+                        self?.rides.sort(by: {$0.vin < $1.vin})
+                    }
+                } catch {
+                    print(error)
+                }
             }
+            task.resume()
         }
-        task.resume()
+        else {
+            print("Invalid user entry")
+        }
     }
     
     func sortResults(selection: String) {
@@ -43,7 +48,7 @@ class ViewModel: ObservableObject {
     func emissions(km: Int) -> Int {
         var units: Float
         var co2: Float
-        if km < 5000 {
+        if km <= 5000 {
             units = Float(km) * 0.1
         } else {
             var first5: Float
