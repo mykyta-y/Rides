@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct DetailsView: View {
-    @StateObject var viewModel = ViewModel()
-    let ride: Ride
+    @StateObject var vm = CarListViewModel()
+    let ride: RideModel
     var body: some View {
         TabView {
             VStack{
@@ -37,27 +37,29 @@ struct CarDetail: View {
             Text(title)
                 .font(.title3)
                 .fontWeight(.bold)
-                .frame(width: .infinity, height: 50, alignment: .leading)
+                .padding(.vertical, 10)
             Text(info)
                 .font(.title)
-                .frame(width: .infinity, height: 50, alignment: .trailing)
+                .padding(.vertical, 10)
         }
     }
 }
 
 struct co2View: View {
-    @StateObject var viewModel = ViewModel()
-    let ride: Ride
+    @StateObject var vm = CarListViewModel()
+    let ride: RideModel
     var body: some View {
-        let co2 = viewModel.emissions(km: ride.kilometrage)
+        let co2 = vm.emissions(km: ride.kilometrage)
         VStack {
             Text("CO2 emissions")
                 .font(.largeTitle)
                 .underline()
-                .frame(width: .infinity, height: 100, alignment: .center)
+                //.frame(width: .infinity, height: 100, alignment: .center)
+                .padding(.vertical, 20)
             Text("\(String(co2)) g/km 🚗💨")
                 .font(.title)
-                .frame(width: .infinity, height: 100, alignment: .center)
+                //.frame(width: .infinity, height: 100, alignment: .center)
+                .padding(.vertical, 20)
             Text("* estimate")
                 .font(.caption)
         }

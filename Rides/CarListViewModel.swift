@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-class ViewModel: ObservableObject {
-    @Published var rides: [Ride] = []
+class CarListViewModel: ObservableObject {
+    @Published var rides: [RideModel] = []
     func loadData(num: String, selection: String) {
         if (!num.isEmpty || Int(num) ?? 0 > 0 || Int(num) ?? 0 <= 100){
             guard let url = URL(string: "https://random-data-api.com/api/vehicle/random_vehicle?size=\(num)") else {
@@ -20,7 +20,7 @@ class ViewModel: ObservableObject {
                     return
                 }
                 do {
-                    let rides = try JSONDecoder().decode([Ride].self, from: data)
+                    let rides = try JSONDecoder().decode([RideModel].self, from: data)
                     DispatchQueue.main.async {
                         
                         self?.rides = rides
@@ -45,6 +45,20 @@ class ViewModel: ObservableObject {
         }
     }
     
+    func shouldDisableButton(num: String) -> Bool{
+        if (num.isEmpty || (Int(num) ?? 0) <= 0 || (Int(num) ?? 0) > 100){
+            return true
+        }
+        return false
+    }
+    
+    func showInputError(num: String) -> Bool {
+        if ((Int(num) ?? 1) <= 0 || (Int(num) ?? 1) > 100) {
+            return true
+        }
+        return false
+    }
+    
     func emissions(km: Int) -> Int {
         var units: Float
         var co2: Float
@@ -57,7 +71,7 @@ class ViewModel: ObservableObject {
             rest = (Float(km) - 5000) * 0.15
             units = first5 + rest
         }
-        co2 = (units/Float(km))*1000
+        co2 = (units / Float(km)) * 1000
         return Int(co2)
     }
 }

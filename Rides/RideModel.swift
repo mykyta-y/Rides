@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Ride: Hashable, Codable {
+struct RideModel: Hashable, Codable {
     var vin: String
     var make_and_model: String
     var color: String
