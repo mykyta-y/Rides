@@ -6,46 +6,67 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
-    @StateObject var viewModel = ViewModel()
+    @StateObject var vm = CarListViewModel()
     @State var num: String = ""
     @State var selection: String = "VIN"
+    @FocusState private var isFocused: Bool
     
     var body: some View {
         VStack {
             HStack {
                 TextField("# of cars to display", text: $num)
+                    .focused($isFocused)
+                    .keyboardType(.numberPad)
+                    .onReceive(Just(num)) { newValue in
+                        let filtered = newValue.filter {"0123456789".contains($0)}
+                        if filtered != newValue {
+                            self.num = filtered
+                        }
+                    }
                     .padding(.horizontal)
                 Button {
-                    viewModel.loadData(num: num, selection: selection)
-                    self.num = ""
+                    Task {
+                        print("button pressed")
+                        await vm.loadRides(num: num, selection: selection)
+                        self.num = ""
+                        isFocused = false
+                    }
                 } label: {
                     Label("Search",systemImage: "magnifyingglass.circle.fill")
                         .font(.title2)
                 }
+                .disabled(vm.shouldDisableButton(num: num))
             }
             .padding()
+            if vm.showInputError(num: num) {
+                Text("* Enter # between 1 and 100")
+                    .font(.callout)
+                    .foregroundColor(.red)
+            }
             Text("Sorted by: ")
             Picker(selection: $selection,
-                   label: Text("Sorted by: "),
+                   label: Text("Sorted by:"),
                    content: {
-                ForEach(sortOption.indices) {index in
+                ForEach(sortOption.indices, id: \.self) {index in
                     Text(sortOption[index])
                         .tag(sortOption[index])
                 }
             })
+            .padding(.horizontal, 30)
             .onChange(of: selection) { _ in
-                viewModel.sortResults(selection: selection)
+                vm.sortResults(selection: selection)
             }
             .pickerStyle(SegmentedPickerStyle())
             NavigationView {
                 List {
-                    ForEach(viewModel.rides, id: \.self) {ride in
+                    ForEach(vm.rides, id: \.self) {ride in
                         HStack {
                             NavigationLink(destination: DetailsView(ride: ride)){
-                                Text(ride.vin)
                                 Text(ride.make_and_model)
+                                Text(ride.vin)                                
                                 //Text(ride.car_type)
                             }
                         }

@@ -11,10 +11,33 @@
 		1D999D072980264400A7FE9A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D999D062980264400A7FE9A /* ContentView.swift */; };
 		1D999D092980264500A7FE9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D999D082980264500A7FE9A /* Assets.xcassets */; };
 		1D999D0C2980264500A7FE9A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D999D0B2980264500A7FE9A /* Preview Assets.xcassets */; };
-		1DEC720329817C3E00A34730 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC720229817C3E00A34730 /* ViewModel.swift */; };
-		1DEC720529817C6B00A34730 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC720429817C6B00A34730 /* Model.swift */; };
+		1DEC720329817C3E00A34730 /* CarListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC720229817C3E00A34730 /* CarListViewModel.swift */; };
+		1DEC720529817C6B00A34730 /* RideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC720429817C6B00A34730 /* RideModel.swift */; };
 		1DEC72072982D62000A34730 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC72062982D62000A34730 /* DetailsView.swift */; };
+		1DEC721C29880A3800A34730 /* co2CalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC721B29880A3800A34730 /* co2CalcTests.swift */; };
+		1DEC722329880B0700A34730 /* CarListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC720229817C3E00A34730 /* CarListViewModel.swift */; };
+		1DEC72242988207C00A34730 /* RideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC720429817C6B00A34730 /* RideModel.swift */; };
+		1DEC7288298C4FB900A34730 /* APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC7287298C4FB900A34730 /* APITests.swift */; };
+		1DEC728E298C4FEE00A34730 /* CarListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC720229817C3E00A34730 /* CarListViewModel.swift */; };
+		1DEC728F298C4FF400A34730 /* RideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC720429817C6B00A34730 /* RideModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1DEC721D29880A3800A34730 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D999CF92980264400A7FE9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D999D002980264400A7FE9A;
+			remoteInfo = Rides;
+		};
+		1DEC7289298C4FB900A34730 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D999CF92980264400A7FE9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D999D002980264400A7FE9A;
+			remoteInfo = Rides;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D999D012980264400A7FE9A /* Rides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rides.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,13 +46,31 @@
 		1D999D082980264500A7FE9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D999D0B2980264500A7FE9A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1DEC72012981672900A34730 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		1DEC720229817C3E00A34730 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		1DEC720429817C6B00A34730 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		1DEC720229817C3E00A34730 /* CarListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListViewModel.swift; sourceTree = "<group>"; };
+		1DEC720429817C6B00A34730 /* RideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideModel.swift; sourceTree = "<group>"; };
 		1DEC72062982D62000A34730 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		1DEC721929880A3800A34730 /* co2CalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = co2CalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DEC721B29880A3800A34730 /* co2CalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = co2CalcTests.swift; sourceTree = "<group>"; };
+		1DEC7285298C4FB900A34730 /* APITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DEC7287298C4FB900A34730 /* APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1D999CFE2980264400A7FE9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DEC721629880A3800A34730 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DEC7282298C4FB900A34730 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -51,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				1D999D012980264400A7FE9A /* Rides.app */,
+				1DEC721929880A3800A34730 /* co2CalcTests.xctest */,
+				1DEC7285298C4FB900A34730 /* APITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,12 +101,13 @@
 		1D999D032980264400A7FE9A /* Rides */ = {
 			isa = PBXGroup;
 			children = (
+				1DEC725D2988341000A34730 /* Tests */,
 				1DEC72012981672900A34730 /* Info.plist */,
 				1D999D042980264400A7FE9A /* RidesApp.swift */,
 				1D999D062980264400A7FE9A /* ContentView.swift */,
 				1DEC72062982D62000A34730 /* DetailsView.swift */,
-				1DEC720229817C3E00A34730 /* ViewModel.swift */,
-				1DEC720429817C6B00A34730 /* Model.swift */,
+				1DEC720229817C3E00A34730 /* CarListViewModel.swift */,
+				1DEC720429817C6B00A34730 /* RideModel.swift */,
 				1D999D082980264500A7FE9A /* Assets.xcassets */,
 				1D999D0A2980264500A7FE9A /* Preview Content */,
 			);
@@ -76,6 +120,32 @@
 				1D999D0B2980264500A7FE9A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1DEC721A29880A3800A34730 /* co2CalcTests */ = {
+			isa = PBXGroup;
+			children = (
+				1DEC721B29880A3800A34730 /* co2CalcTests.swift */,
+			);
+			path = co2CalcTests;
+			sourceTree = "<group>";
+		};
+		1DEC725D2988341000A34730 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1DEC7286298C4FB900A34730 /* APITests */,
+				1DEC721A29880A3800A34730 /* co2CalcTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		1DEC7286298C4FB900A34730 /* APITests */ = {
+			isa = PBXGroup;
+			children = (
+				1DEC7287298C4FB900A34730 /* APITests.swift */,
+			);
+			name = APITests;
+			path = ../APITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +168,42 @@
 			productReference = 1D999D012980264400A7FE9A /* Rides.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1DEC721829880A3800A34730 /* co2CalcTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEC721F29880A3800A34730 /* Build configuration list for PBXNativeTarget "co2CalcTests" */;
+			buildPhases = (
+				1DEC721529880A3800A34730 /* Sources */,
+				1DEC721629880A3800A34730 /* Frameworks */,
+				1DEC721729880A3800A34730 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1DEC721E29880A3800A34730 /* PBXTargetDependency */,
+			);
+			name = co2CalcTests;
+			productName = co2CalcTests;
+			productReference = 1DEC721929880A3800A34730 /* co2CalcTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1DEC7284298C4FB900A34730 /* APITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEC728B298C4FB900A34730 /* Build configuration list for PBXNativeTarget "APITests" */;
+			buildPhases = (
+				1DEC7281298C4FB900A34730 /* Sources */,
+				1DEC7282298C4FB900A34730 /* Frameworks */,
+				1DEC7283298C4FB900A34730 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1DEC728A298C4FB900A34730 /* PBXTargetDependency */,
+			);
+			name = APITests;
+			productName = APITests;
+			productReference = 1DEC7285298C4FB900A34730 /* APITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -110,6 +216,14 @@
 				TargetAttributes = {
 					1D999D002980264400A7FE9A = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					1DEC721829880A3800A34730 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 1D999D002980264400A7FE9A;
+					};
+					1DEC7284298C4FB900A34730 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 1D999D002980264400A7FE9A;
 					};
 				};
 			};
@@ -127,6 +241,8 @@
 			projectRoot = "";
 			targets = (
 				1D999D002980264400A7FE9A /* Rides */,
+				1DEC721829880A3800A34730 /* co2CalcTests */,
+				1DEC7284298C4FB900A34730 /* APITests */,
 			);
 		};
 /* End PBXProject section */
@@ -141,6 +257,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1DEC721729880A3800A34730 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DEC7283298C4FB900A34730 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -149,14 +279,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D999D072980264400A7FE9A /* ContentView.swift in Sources */,
-				1DEC720329817C3E00A34730 /* ViewModel.swift in Sources */,
+				1DEC720329817C3E00A34730 /* CarListViewModel.swift in Sources */,
 				1D999D052980264400A7FE9A /* RidesApp.swift in Sources */,
 				1DEC72072982D62000A34730 /* DetailsView.swift in Sources */,
-				1DEC720529817C6B00A34730 /* Model.swift in Sources */,
+				1DEC720529817C6B00A34730 /* RideModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DEC721529880A3800A34730 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DEC72242988207C00A34730 /* RideModel.swift in Sources */,
+				1DEC722329880B0700A34730 /* CarListViewModel.swift in Sources */,
+				1DEC721C29880A3800A34730 /* co2CalcTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DEC7281298C4FB900A34730 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DEC7288298C4FB900A34730 /* APITests.swift in Sources */,
+				1DEC728E298C4FEE00A34730 /* CarListViewModel.swift in Sources */,
+				1DEC728F298C4FF400A34730 /* RideModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1DEC721E29880A3800A34730 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D999D002980264400A7FE9A /* Rides */;
+			targetProxy = 1DEC721D29880A3800A34730 /* PBXContainerItemProxy */;
+		};
+		1DEC728A298C4FB900A34730 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D999D002980264400A7FE9A /* Rides */;
+			targetProxy = 1DEC7289298C4FB900A34730 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D999D0D2980264500A7FE9A /* Debug */ = {
@@ -331,6 +494,78 @@
 			};
 			name = Release;
 		};
+		1DEC722029880A3800A34730 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mykyta-y.co2CalcTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rides.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Rides";
+			};
+			name = Debug;
+		};
+		1DEC722129880A3800A34730 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mykyta-y.co2CalcTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rides.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Rides";
+			};
+			name = Release;
+		};
+		1DEC728C298C4FB900A34730 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mykyta-y.APITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rides.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Rides";
+			};
+			name = Debug;
+		};
+		1DEC728D298C4FB900A34730 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mykyta-y.APITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Rides.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Rides";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -348,6 +583,24 @@
 			buildConfigurations = (
 				1D999D102980264500A7FE9A /* Debug */,
 				1D999D112980264500A7FE9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEC721F29880A3800A34730 /* Build configuration list for PBXNativeTarget "co2CalcTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEC722029880A3800A34730 /* Debug */,
+				1DEC722129880A3800A34730 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEC728B298C4FB900A34730 /* Build configuration list for PBXNativeTarget "APITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEC728C298C4FB900A34730 /* Debug */,
+				1DEC728D298C4FB900A34730 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
