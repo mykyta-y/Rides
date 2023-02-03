@@ -8,33 +8,37 @@
 import Foundation
 import SwiftUI
 
+@MainActor
 class CarListViewModel: ObservableObject {
     @Published var rides: [RideModel] = []
-    func loadData(num: String, selection: String) {
-        if (!num.isEmpty || Int(num) ?? 0 > 0 || Int(num) ?? 0 <= 100){
-            guard let url = URL(string: "https://random-data-api.com/api/vehicle/random_vehicle?size=\(num)") else {
-                return
-            }
-            let task = URLSession.shared.dataTask(with: url) {[weak self] data, _, error in
-                guard let data = data, error == nil else {
-                    return
+    func loadData(num: String, selection: String) async -> [RideModel] {
+        if shouldFetchBasedOnUserInput(on: num){
+            do {
+                guard let url = URL(string: "https://random-data-api.com/api/vehicle/random_vehicle?size=\(num)") else {
+                    return []
                 }
-                do {
-                    let rides = try JSONDecoder().decode([RideModel].self, from: data)
-                    DispatchQueue.main.async {
-                        
-                        self?.rides = rides
-                        self?.rides.sort(by: {$0.vin < $1.vin})
-                    }
-                } catch {
-                    print(error)
-                }
+                let (data, _) = try await URLSession.shared.data(from: url)
+                let rides = try JSONDecoder().decode([RideModel].self, from: data)
+                print(rides)
+                return rides
+            } catch {
+                print(error)
             }
-            task.resume()
         }
-        else {
-            print("Invalid user entry")
+        return []
+    }
+    
+    func loadRides(num: String, selection: String) async {
+            let rides = await loadData(num: num, selection: selection)
+            self.rides = rides
+            self.rides.sort(by: {$0.vin < $1.vin})
+    }
+    
+    func shouldFetchBasedOnUserInput(on num: String) -> Bool {
+        if (!num.isEmpty || Int(num) ?? 0 > 0 || Int(num) ?? 0 <= 100) {
+            return true
         }
+        return false
     }
     
     func sortResults(selection: String) {
@@ -45,7 +49,7 @@ class CarListViewModel: ObservableObject {
         }
     }
     
-    func shouldDisableButton(num: String) -> Bool{
+    func shouldDisableButton(num: String) -> Bool {
         if (num.isEmpty || (Int(num) ?? 0) <= 0 || (Int(num) ?? 0) > 100){
             return true
         }

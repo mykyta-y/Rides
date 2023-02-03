@@ -10,7 +10,7 @@ import XCTest
 final class co2CalcTests: XCTestCase {
 
     //Test emissions per km whem kilometrage is under 5K
-    func test_emissions_under5k_km() {
+    @MainActor func test_emissions_under5k_km() {
         let sut = CarListViewModel()
         
         let actual = sut.emissions(km: 4899)
@@ -20,7 +20,7 @@ final class co2CalcTests: XCTestCase {
     }
     
     //Test emissions per km when kilometrage is over 5K
-    func test_emissions_over5k_km() {
+    @MainActor func test_emissions_over5k_km() {
         let sut = CarListViewModel()
         
         let actual = sut.emissions(km: 15488)
