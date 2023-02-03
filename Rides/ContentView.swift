@@ -28,9 +28,12 @@ struct ContentView: View {
                     }
                     .padding(.horizontal)
                 Button {
-                    vm.loadData(num: num, selection: selection)
-                    self.num = ""
-                    isFocused = false
+                    Task {
+                        print("button pressed")
+                        await vm.loadRides(num: num, selection: selection)
+                        self.num = ""
+                        isFocused = false
+                    }
                 } label: {
                     Label("Search",systemImage: "magnifyingglass.circle.fill")
                         .font(.title2)
